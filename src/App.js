@@ -9,46 +9,28 @@ class App extends React.Component {
   
 
   componentDidMount() {
-    this.createHexagonContainer();
-    this.drawHexagon(1);
+    this.createHexagonContainer(5, 5, 5, 2, 5, 5);
   }
 
-  createHexagonContainer(a = 5, b = 5, c = 5, d = 5, e = 5) {
+  createHexagonContainer(a = 5, b = 5, c = 5, d = 5, e = 5, f = 5) {
     const hexagon = this.refs.hexagon;
     const context = hexagon.getContext('2d');
-    const hWidth = hexagon.width;
+    const height = hexagon.height;
     context.strokeStyle = "#ff4500";
     context.fillStyle = "#ff4500";
     context.beginPath();
-    context.moveTo(hWidth / 2, 0);
-    context.lineTo(0, hWidth / 4);
-    context.lineTo(0, hWidth * 0.75);
-    context.lineTo(hWidth / 2, hWidth);
-    context.lineTo(hWidth, hWidth * 0.75);
-    context.lineTo(hWidth, hWidth / 4);
-    context.lineTo(hWidth / 2, 0);
-    context.stroke();
-    // context.fill();
-  }
-
-  drawHexagon(a = 5, b = 5, c = 5, d = 5, e = 5) {
-    const hexagon = this.refs.hexagon;
-    const context = hexagon.getContext('2d');
-    const hWidth = hexagon.width;
-    // context.strokeStyle = "black";
-    context.fillStyle = "#ff4500";
-    context.beginPath();
-    context.moveTo(hWidth / 2, (hWidth/2) * (1 - (a / 5)));
-    context.lineTo(0, hWidth / 4);
-    context.lineTo(0, hWidth * 0.75);
-    context.lineTo(hWidth / 2, hWidth);
-    context.lineTo(hWidth, hWidth * 0.75);
-    context.lineTo(hWidth, hWidth / 4);
-    context.lineTo(hWidth / 2, (hWidth/2) * (1 - (a / 5)));
+    const fy = (height / 4) * (1 - f / 5);
+    context.moveTo(0, (height / 4) + fy);
+    const width = Math.sqrt(Math.pow(height / 2, 2) - Math.pow(height / 4, 2)) * 2;
+    context.lineTo(width / 2, (height / 2) * (1 - a / 5));
+    context.lineTo(width, height / 4);
+    context.lineTo(width, height * 0.75);
+    context.lineTo(width / 2, height - (height / 2) * (1 - d / 5));
+    context.lineTo(0, height * 0.75);
+    context.lineTo(0, height / 4);
     context.stroke();
     context.fill();
   }
-
 
   render() {
     const hexagonSize = window.innerHeight / 2;
