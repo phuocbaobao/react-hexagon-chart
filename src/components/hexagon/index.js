@@ -15,9 +15,7 @@ class Hexagon extends React.Component {
         const context = hexagon.getContext('2d');
         const height = hexagon.height - 70;
         const width = Math.sqrt(Math.pow(height / 2, 2) - Math.pow(height / 4, 2)) * 2;
-        console.log(hexagon.width);
-        console.log(width)
-        // X axis start at 130
+        // X axis start at hexagon.width - width) / 2
         // Y axis start at 35
         context.translate((hexagon.width - width) / 2, 35);
         const hexagonContainerPoint = [5, 5, 5, 5, 5, 5];
@@ -179,8 +177,8 @@ class Hexagon extends React.Component {
 
         return (
             <Col>
-                <h3 style={{ marginBottom: '50px' }}>{title}</h3>
-                <canvas id="canvas" ref="hexagon" width={hexagonSize + 100} height={hexagonSize}></canvas>
+                <h3 className="title">{title}</h3>
+                <canvas className="canvas" ref="hexagon" width={hexagonSize + 100} height={hexagonSize}></canvas>
             </Col>
         )
     }

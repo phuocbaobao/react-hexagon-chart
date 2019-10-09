@@ -1,7 +1,58 @@
-.col {
-    background-color: wheat
+.title {
+    margin-bottom: 30px;
 }
 
-#canvas {
-    background-color: wheat
+@media screen and (max-width: 1340px) {
+    .canvas {
+        width: 550px;
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .canvas {
+        width: 500px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .canvas {
+        width: 450px;
+        height: 350px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .canvas {
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .canvas {
+        width: 550px;
+        height: 450px;
+    }
+
+    .title {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .canvas {
+        width: 450px;
+        height: 350px;
+    }
+
+    .title {
+        margin-top: 30px;
+        font-size: 25px;
+    }
 }
